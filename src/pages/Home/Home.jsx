@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -47,16 +48,6 @@ export default function Home() {
 
   return (
     <div className="bg-gradient-to-b from-orange-50 via-white to-orange-50">
-      {/* Navigation */}
-
-
-      {/* Fixed Header Banner */}
-      {/* <div className="w-full bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-4 fixed left-0 z-40">
-        <div className="container mx-auto flex items-center justify-center text-sm font-medium">
-          <Zap className="w-4 h-4 mr-2 animate-pulse" />
-          Premium Quality at 40% Below Market Rates
-        </div>
-      </div> */}
 
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col items-center justify-start md:justify-center px-4 pt-0 md:py-20 overflow-hidden">
@@ -102,7 +93,7 @@ export default function Home() {
                 </div>
               </motion.div>
             </AnimatePresence>
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="flex justify-center gap-2 mt-4 mb-20">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -143,11 +134,11 @@ export default function Home() {
 const HeroContent = () => (
   <>
 
-    <span className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium mb-6">
+    <span className="inline-block px-4 py-2 bg-black/10 text-gray-900 rounded-full text-sm font-medium mb-6">
       Next-Gen Tech Solutions at Affordable Rates
     </span>
 
-    <h1 className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-orange-600 to-orange-600 text-transparent bg-clip-text leading-tight md:leading-tight mb-2">
+    <h1 className="text-3xl md:text-6xl font-bold text-gray-800 bg-clip-text leading-tight md:leading-tight mb-2">
       WebReich <span className="text-gray-800 text-3xl"> Technologies</span> <br />
     </h1>
     {/* <span className="text-sm text-gray-800 font-normal mb-6">Make Your Online Prsenece Without Premium Prices</span> */}
@@ -155,7 +146,7 @@ const HeroContent = () => (
     {/* <Features /> */}
 
     <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-      We deliver premium software solutions at rates 40% below market average,
+      We deliver premium software solutions at rates 60% below market average,
       without compromising on quality or technology.
     </p>
 
@@ -172,7 +163,7 @@ const ValueProp = ({ icon: Icon, text, color }) => (
 
 const Features = () => (
   <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-    <Feature icon={DollarSign} text="40% Below Market Rates" color="green" />
+    <Feature icon={DollarSign} text="60% Below Market Rates" color="green" />
     <Divider />
     <Feature icon={Zap} text="Latest Technologies" color="blue" />
     <Divider />
@@ -194,7 +185,7 @@ const Divider = () => (
 const CTAButtons = () => (
   <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
     <PrimaryButton text="Let's Start a Project" icon={ArrowRight} />
-    <SecondaryButton text="View Our Work" icon={ArrowUpRight} />
+    <SecondaryButton text="View Our Work" icon={ArrowUpRight} to="/ourwork" />
   </div>
 );
 
@@ -216,10 +207,10 @@ const PriceComparison = () => (
   <div className="mt-12 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg max-w-md mx-auto">
     <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Price Comparison</h3>
     <div className="space-y-3">
-      <PriceRow label="Market Average" price="$100/hour" isStrikethrough />
-      <PriceRow label="Our Rate" price="$60/hour" isHighlighted />
+      <PriceRow label="Market Average" price="₹2,500/hour" isStrikethrough />
+      <PriceRow label="Our Rate" price="₹900/hour" isHighlighted />
       <div className="text-sm text-green-600 font-medium text-center pt-2 border-t">
-        Save 40% without compromising quality
+        Save 60% without compromising quality
       </div>
     </div>
   </div>
@@ -236,8 +227,8 @@ const StatsSection = () => (
   <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-orange-100">
     <div className="container mx-auto px-4 py-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <StatItem icon={<Star className="w-5 h-5 text-yellow-500" />} number="150+" label="Projects Delivered" />
-        <StatItem icon={<DollarSign className="w-5 h-5 text-green-500" />} number="40%" label="Cost Savings" />
+        <StatItem icon={<Star className="w-5 h-5 text-yellow-500" />} number="50+" label="Projects Delivered" />
+        <StatItem icon={<DollarSign className="w-5 h-5 text-green-500" />} number="60%" label="Cost Savings" />
         <StatItem icon={<Users className="w-5 h-5 text-blue-500" />} number="98%" label="Client Satisfaction" />
         <StatItem icon={<Clock className="w-5 h-5 text-purple-500" />} number="24/7" label="Support Available" />
       </div>
@@ -383,7 +374,7 @@ const WhyChooseUsSection = () => (
             <FeatureCard
               icon={<DollarSign className="w-6 h-6" />}
               title="Best Rates"
-              description="40% below market average"
+              description="60% below market average"
             />
           </div>
         </div>
@@ -446,7 +437,7 @@ const CTASection = () => (
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
           <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition-colors">
-            View Case Studies
+           <Link to="/casestudy">View Case Studies</Link>
           </button>
         </div>
       </motion.div>

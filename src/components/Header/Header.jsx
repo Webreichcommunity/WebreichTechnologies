@@ -39,11 +39,11 @@ export default function Header() {
   return (
     <div className="w-full bg-white">
       {/* Announcement Bar */}
-      <div className="bg-orange-600 text-white text-sm py-2">
+      {/* <div className="bg-orange-600 text-white text-sm py-2">
         <div className="container mx-auto px-4 text-center">
           <span>Introducing WebReich Technologies AI Suite - Transform your business with software solutions</span>
         </div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto">
         <div className="flex items-center justify-between px-4 py-4">
@@ -150,7 +150,7 @@ export default function Header() {
                   className="flex items-center justify-between text-gray-700 hover:text-orange-600 cursor-pointer"
                   onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
                 >
-                  <span className="text-base font-medium">{item.name}</span>
+                  <Link to={item.href}><span className="text-base font-medium">{item.name}</span></Link>
                   {item.submenu && (
                     <ChevronDown className={`w-5 h-5 transition-transform ${activeSubmenu === item.name ? "rotate-180" : ""
                       }`} />
