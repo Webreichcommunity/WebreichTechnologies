@@ -4,26 +4,31 @@ import { Menu, X, ChevronDown, Search } from "lucide-react";
 
 const menuItems = [
   {
-    name: "Solutions",
-    href: "/solutions",
+    name: "Home",
+    href: "/"
+  },
+  {
+    name: "Case Studies",
+    href: "/case-studies",
     submenu: [
-      { name: "Enterprise Software", href: "/solutions/enterprise" },
-      { name: "Workflow Automation", href: "/solutions/automation" },
-      { name: "AI & Machine Learning", href: "/solutions/ai-ml" },
-      { name: "Cloud Integration", href: "/solutions/cloud" },
+      { name: "Webreich Education", href: "/case-studies/webreich-education" },
+      { name: "Webreich Technologies", href: "/case-studies/webreich-business-solutions" },
+      { name: "Small Business CRM", href: "/case-studies/small-business-crm" },
     ]
   },
   {
-    name: "Products",
-    href: "/products",
+    name: "Our Work",
+    href: "/ourwork",
     submenu: [
-      { name: "CRM Suite", href: "/products/crm" },
-      { name: "Project Management", href: "/products/project" },
-      { name: "Analytics Platform", href: "/products/analytics" },
-      { name: "HR Management", href: "/products/hr" },
+      { name: "WebReich Community", href: "/ourwork/webreichcommunity" },
+      { name: "Chops Cut Meat Shop", href: "/ourwork/chopscutmeatshop" },
+      { name: "WebReich CRM", href: "/ourwork/webreichcrm" },
+      { name: "Ram Krushana Nursery", href: "/ourwork/ramkrushananursery" },
+      { name: "Agri-Equip", href: "/ourwork/agriquip" },
+      { name: "Nisarg Nursery", href: "/ourwork/nisargnursery" },
     ]
   },
-  { name: "Case Studies", href: "/case-studies" },
+  { name: "Budget Calculator", href: "/inquire" },
   { name: "Resources", href: "/resources" },
 ];
 
@@ -99,7 +104,7 @@ export default function Header() {
               <Search className="w-5 h-5" />
             </button>
             <Link
-              to="/contact"
+              to="/inquire"
               className="px-5 py-2.5 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors"
             >
               Inquries
@@ -180,7 +185,7 @@ export default function Header() {
 
           <div className="border-t p-4">
             <Link
-              to="/contact"
+              to="/inquire"
               className="block w-full px-5 py-3 text-center font-medium text-white bg-orange-600 rounded-lg hover:bg-orange-700"
               onClick={toggleMenu}
             >

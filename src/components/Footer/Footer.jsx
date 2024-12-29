@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -16,26 +17,26 @@ const Footer = () => {
               </div>
               <span className="text-gray-900 font-bold text-xl">WebReich Technologies</span>
             </div>
-            
+
             <p className="text-sm leading-relaxed">
               Empowering businesses with intelligent software solutions. We create custom enterprise applications, workflow automation tools, and AI-powered business systems that transform how companies operate.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-orange-600 transition-colors" aria-label="GitHub">
+              <a href="https://github.com/Shiro005" className="hover:text-orange-600 transition-colors" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-orange-600 transition-colors" aria-label="Twitter">
+              <a href="https://x.com/ShriyashRulhe?t=k4cVgM_UUFa7r5keZ0v7YA&s=09" className="hover:text-orange-600 transition-colors" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-orange-600 transition-colors" aria-label="YouTube">
+              <a href="https://www.youtube.com/channel/UC7H82Mxei7P9m6Gw3KssINw" className="hover:text-orange-600 transition-colors" aria-label="YouTube">
                 <Youtube className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-orange-600 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/akshay_bhaltilak/?utm_source=ig_web_button_share_sheet" className="hover:text-orange-600 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-orange-600 transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/shriyash-rulhe-655a9422a/" className="hover:text-orange-600 transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -52,7 +53,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-orange-600 transition-colors">
-                  Workflow Automation
+                  Web Development
                 </a>
               </li>
               <li>
@@ -67,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-orange-600 transition-colors">
-                  Cloud Integration
+                  Data Management
                 </a>
               </li>
             </ul>
@@ -78,29 +79,24 @@ const Footer = () => {
             <h3 className="text-gray-900 font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="hover:text-orange-600 transition-colors">
+                <Link to="/case-studies/webreich-business-solutions" className="hover:text-orange-600 transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-600 transition-colors">
+                <Link to="/case-studies" className="hover:text-orange-600 transition-colors">
                   Case Studies
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-600 transition-colors">
-                  Resources
-                </a>
+                <Link to="/ourwork" className="hover:text-orange-600 transition-colors">
+                  Our Work
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-orange-600 transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-orange-600 transition-colors">
-                  Careers
-                </a>
+                <Link to="/ourwork/webreichcommunity" className="hover:text-orange-600 transition-colors">
+                  WebReich Education
+                </Link>
               </li>
             </ul>
           </div>

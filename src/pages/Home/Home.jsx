@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -10,7 +10,6 @@ import {
   ArrowUpRight,
   Users,
   Laptop,
-  Sparkles,
   CheckCircle,
   DollarSign,
   Zap,
@@ -18,317 +17,492 @@ import {
   Shield,
   Star,
   Menu,
-  X
+  X,
+  PhoneCall,
+  Mail,
+  MessageCircle
 } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "CTO, TechCorp",
-    content: "The quality of work delivered was exceptional, and the cost savings were remarkable.",
-    rating: 5
-  },
-  {
-    name: "Michael Chen",
-    role: "Founder, StartupX",
-    content: "Their team consistently delivers high-quality solutions while maintaining competitive rates.",
-    rating: 5
-  },
-  {
-    name: "Emma Williams",
-    role: "Product Manager, InnovateCo",
-    content: "Outstanding service and technical expertise at a fraction of the market cost.",
-    rating: 5
-  }
-];
+import { BiRupee } from "react-icons/bi";
+import TechnologyShowcase from "../Skills/TechnologyShowcase";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Handle scroll behavior
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100);
+      lastScrollY = currentScrollY;
+      setScrollPosition(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="bg-gradient-to-b from-orange-50 via-white to-orange-50">
+    <div className="bg-gradient-to-b from-orange-50 via-white to-orange-50 overflow-hidden">
+      {/* Floating Contact Button */}
+      {/* <FloatingContactButton isVisible={isVisible} /> */}
 
-      {/* Hero Section */}
-      <div className="relative min-h-screen flex flex-col items-center justify-start md:justify-center px-4 pt-0 md:py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-transparent" />
+      {/* Enhanced Hero Section */}
+      <HeroSection />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative text-center max-w-4xl mx-auto"
-        >
-          <div className="mb-8 flex justify-center">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="w-24 h-24 rounded-full bg-gradient-to-r from-orange-500 to-purple-500 opacity-20 absolute blur-3xl"
-            />
-          </div>
+      {/* Animated Stats Section */}
+      <StatsSection />
 
-          {/* Hero Content */}
-          <HeroContent />
+      {/* Interactive Technology Showcase */}
+      <TechnologyShowcase />
 
-          {/* Testimonials Carousel */}
-          <div className="mt-16">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTestimonial}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white rounded-2xl p-6 shadow-lg"
-              >
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonials[activeTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic mb-4">"{testimonials[activeTestimonial].content}"</p>
-                <div className="text-sm">
-                  <p className="font-semibold text-gray-900">{testimonials[activeTestimonial].name}</p>
-                  <p className="text-gray-500">{testimonials[activeTestimonial].role}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-            <div className="flex justify-center gap-2 mt-4 mb-20">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${index === activeTestimonial ? 'bg-orange-600' : 'bg-orange-200'
-                    }`}
-                />
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ChevronDown className="w-6 h-6 text-orange-400" />
-        </motion.div>
-
-        {/* Stats Section */}
-        <StatsSection />
-      </div>
-
-      {/* Services Section */}
+      {/* Enhanced Services Section */}
       <ServicesSection />
 
-      {/* Why Choose Us Section */}
+      {/* Dynamic Why Choose Us Section */}
       <WhyChooseUsSection />
 
-      {/* CTA Section */}
+      {/* Engaging CTA Section */}
       <CTASection />
+
+      {/* Quick Contact Section */}
+      <QuickContactSection />
     </div>
   );
 }
 
-const HeroContent = () => (
+const FloatingContactButton = ({ isVisible }) => (
+  <motion.div
+    initial={{ x: 100 }}
+    animate={{ x: isVisible ? 0 : 100 }}
+    transition={{ duration: 0.3 }}
+    className="fixed right-4 bottom-4 z-50 flex flex-col gap-2"
+  >
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      className="bg-orange-600 text-white p-4 rounded-full shadow-lg hover:bg-orange-700 transition-colors"
+    >
+      <PhoneCall className="w-6 h-6" />
+    </motion.button>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      className="bg-orange-600 text-white p-4 rounded-full shadow-lg hover:bg-orange-700 transition-colors"
+    >
+      <MessageCircle className="w-6 h-6" />
+    </motion.button>
+  </motion.div>
+);
+
+const HeroSection = () => (
+  <div className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
+    {/* Animated Background Elements */}
+    <AnimatedBackground />
+
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="relative text-center max-w-4xl mx-auto"
+    >
+      <HeroBadge />
+      <HeroTitle />
+      <HeroDescription />
+      <CTAButtons />
+      <EnhancedPriceComparison />
+    </motion.div>
+
+    {/* <ScrollIndicator /> */}
+  </div>
+);
+
+const AnimatedBackground = () => (
   <>
-
-    <span className="inline-block px-4 py-2 bg-black/10 text-gray-900 rounded-full text-sm font-medium mb-6">
-      Next-Gen Tech Solutions at Affordable Rates
-    </span>
-
-    <h1 className="text-3xl md:text-6xl font-bold text-gray-800 bg-clip-text leading-tight md:leading-tight mb-2">
-      WebReich <span className="text-gray-800 text-3xl"> Technologies</span> <br />
-    </h1>
-    {/* <span className="text-sm text-gray-800 font-normal mb-6">Make Your Online Prsenece Without Premium Prices</span> */}
-
-    {/* <Features /> */}
-
-    <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-      We deliver premium software solutions at rates 60% below market average,
-      without compromising on quality or technology.
-    </p>
-
-    <CTAButtons />
-    <PriceComparison />
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute w-full h-full">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-orange-300 to-purple-300 opacity-10 blur-3xl"
+            animate={{
+              x: [Math.random() * 100, Math.random() * -100],
+              y: [Math.random() * 100, Math.random() * -100],
+            }}
+            transition={{
+              duration: 15 + Math.random() * 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            style={{
+              width: `${200 + Math.random() * 200}px`,
+              height: `${200 + Math.random() * 200}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
   </>
 );
 
-const ValueProp = ({ icon: Icon, text, color }) => (
-  <span className={`inline-flex items-center px-3 py-1 bg-${color}-100 text-${color}-700 rounded-full text-sm font-medium`}>
-    <Icon className="w-4 h-4 mr-1" /> {text}
-  </span>
+const HeroBadge = () => (
+  <motion.span
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2 }}
+    className="inline-block px-6 py-3 bg-gradient-to-r from-orange-100 to-purple-100 text-gray-900 rounded-full text-sm font-medium mb-6 shadow-md"
+  >
+    Next-Gen Tech Solutions at Affordable Rates
+  </motion.span>
 );
 
-const Features = () => (
-  <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-    <Feature icon={DollarSign} text="60% Below Market Rates" color="green" />
-    <Divider />
-    <Feature icon={Zap} text="Latest Technologies" color="blue" />
-    <Divider />
-    <Feature icon={CheckCircle} text="Premium Quality" color="purple" />
-  </div>
+const HeroTitle = () => (
+  <motion.h1
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4 }}
+    className="text-4xl md:text-7xl font-bold text-gray-800 leading-tight md:leading-tight mb-4"
+  >
+    WebReich
+    <span className="bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent">
+      {" "}Technologies
+    </span>
+  </motion.h1>
 );
-
-const Feature = ({ icon: Icon, text, color }) => (
-  <div className="flex items-center gap-2 text-gray-600">
-    <Icon className={`w-5 h-5 text-${color}-600`} />
-    <span>{text}</span>
-  </div>
-);
-
-const Divider = () => (
-  <div className="hidden md:block w-1.5 h-1.5 bg-gray-300 rounded-full" />
+const HeroDescription = () => (
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.6 }}
+    className="mt-6 text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto"
+  >
+    We deliver premium{" "}
+    <span className="relative">
+      <span className="bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent font-bold">
+        Websites & software solutions
+      </span>
+      <motion.span
+        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-300 to-purple-300 opacity-50"
+        initial={{ width: 0 }}
+        animate={{ width: "100%" }}
+        transition={{ delay: 1, duration: 0.8 }}
+      />
+    </span>{" "}
+    at rates 60% below market average, without compromising on quality.
+  </motion.p>
 );
 
 const CTAButtons = () => (
-  <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-    <PrimaryButton text="Let's Start a Project" icon={ArrowRight} />
-    <SecondaryButton text="View Our Work" icon={ArrowUpRight} to="/ourwork" />
-  </div>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.8 }}
+    className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+  >
+    <PrimaryButton text="Start Your Project" icon={ArrowRight} route="/start-project" />
+    <SecondaryButton text="Explore Our Work" icon={ArrowUpRight} route="/our-work" />
+  </motion.div>
 );
 
-const PrimaryButton = ({ text, icon: Icon }) => (
-  <button className="px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-full font-medium hover:from-orange-700 hover:to-orange-600 transition-all flex items-center gap-2 justify-center group shadow-lg hover:shadow-xl">
-    {text}
-    <Icon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-  </button>
+const PrimaryButton = ({ text, icon: Icon, route }) => (
+  <Link to="/inquire" className="group">
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="w-full px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-600 text-white rounded-full font-medium transition-all flex items-center gap-2 justify-center shadow-lg hover:shadow-xl relative overflow-hidden"
+    >
+      <span className="relative z-10 flex items-center gap-2">
+        {text}
+        <Icon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </span>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-purple-600 to-orange-600"
+        initial={{ x: "100%" }}
+        whileHover={{ x: 0 }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.button>
+  </Link>
 );
 
-const SecondaryButton = ({ text, icon: Icon }) => (
-  <button className="px-8 py-4 border-2 border-orange-200 rounded-full font-medium hover:border-orange-600 transition-all flex items-center gap-2 justify-center group">
-    {text}
-    <Icon className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-  </button>
+const SecondaryButton = ({ text, icon: Icon, route }) => (
+  <Link to="/ourwork" className="group">
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="w-full px-8 py-4 border-2 border-orange-200 hover:border-orange-600 rounded-full font-medium transition-all flex items-center gap-2 justify-center bg-white/80 backdrop-blur-sm"
+    >
+      {text}
+      <Icon className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+    </motion.button>
+  </Link>
 );
 
-const PriceComparison = () => (
-  <div className="mt-12 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg max-w-md mx-auto">
-    <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Price Comparison</h3>
-    <div className="space-y-3">
-      <PriceRow label="Market Average" price="₹2,500/hour" isStrikethrough />
-      <PriceRow label="Our Rate" price="₹900/hour" isHighlighted />
-      <div className="text-sm text-green-600 font-medium text-center pt-2 border-t">
-        Save 60% without compromising quality
-      </div>
+const EnhancedPriceComparison = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1 }}
+    className="mt-16 bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-md mx-auto border border-orange-100"
+  >
+    <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
+      {/* <DollarSign className="w-5 h-5 text-orange-600" /> */}
+      Transparent Pricing Comparison
+    </h3>
+    <div className="space-y-4">
+      <PriceRow
+        label="Market Average"
+        price="₹2,500/hour"
+        isStrikethrough
+        icon={<ArrowUpRight className="w-4 h-4 text-red-500" />}
+      />
+      <PriceRow
+        label="Our Premium Rate"
+        price="₹900/hour"
+        isHighlighted
+        icon={<ArrowRight className="w-4 h-4 text-green-500" />}
+      />
+      <motion.div
+        className="text-sm font-medium text-center pt-4 border-t mt-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+      >
+        <span className="bg-gradient-to-r from-green-600 to-green-500 text-white px-3 py-1 rounded-full text-xs">
+          Save 60%
+        </span>
+        <p className="mt-2 text-gray-600">
+          Premium quality at industry-leading rates
+        </p>
+      </motion.div>
     </div>
-  </div>
+  </motion.div>
 );
 
-const PriceRow = ({ label, price, isStrikethrough, isHighlighted }) => (
-  <div className={`flex justify-between items-center ${isHighlighted ? 'text-green-600 font-semibold' : 'text-gray-600'}`}>
-    <span>{label}</span>
-    <span className={isStrikethrough ? 'text-gray-400 line-through' : ''}>{price}</span>
-  </div>
+const PriceRow = ({ label, price, isStrikethrough, isHighlighted, icon }) => (
+  <motion.div
+    whileHover={{ x: 5 }}
+    className={`flex justify-between items-center p-3 rounded-lg transition-colors ${isHighlighted ? 'bg-green-50' : 'hover:bg-gray-50'
+      }`}
+  >
+    <div className="flex items-center gap-2">
+      {icon}
+      <span className={isHighlighted ? 'font-semibold text-green-600' : 'text-gray-600'}>
+        {label}
+      </span>
+    </div>
+    <span className={`${isStrikethrough ? 'text-gray-400 line-through' : 'text-gray-900 font-semibold'}`}>
+      {price}
+    </span>
+  </motion.div>
 );
 
 const StatsSection = () => (
-  <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-orange-100">
-    <div className="container mx-auto px-4 py-6">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="relative py-12 bg-white/80 backdrop-blur-sm border-y border-orange-100"
+  >
+    <div className="container mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <StatItem icon={<Star className="w-5 h-5 text-yellow-500" />} number="50+" label="Projects Delivered" />
-        <StatItem icon={<DollarSign className="w-5 h-5 text-green-500" />} number="60%" label="Cost Savings" />
-        <StatItem icon={<Users className="w-5 h-5 text-blue-500" />} number="98%" label="Client Satisfaction" />
-        <StatItem icon={<Clock className="w-5 h-5 text-purple-500" />} number="24/7" label="Support Available" />
+        <AnimatedStatItem
+          icon={<Star className="w-6 h-6 text-yellow-500" />}
+          number="50+"
+          label="Projects Delivered"
+          delay={0}
+        />
+        <AnimatedStatItem
+          icon={<BiRupee className="w-6 h-6 text-green-500" />}
+          number="60%"
+          label="Cost Savings"
+          delay={0.2}
+        />
+        <AnimatedStatItem
+          icon={<Users className="w-6 h-6 text-blue-500" />}
+          number="98%"
+          label="Client Satisfaction"
+          delay={0.4}
+        />
+        <AnimatedStatItem
+          icon={<Clock className="w-6 h-6 text-purple-500" />}
+          number="24/7"
+          label="Support Available"
+          delay={0.6}
+        />
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
-const StatItem = ({ icon, number, label }) => (
-  <div className="text-center transform hover:scale-105 transition-transform">
-    <div className="flex justify-center mb-2">{icon}</div>
-    <div className="text-2xl md:text-3xl font-bold text-orange-600">{number}</div>
-    <div className="text-sm text-gray-600">{label}</div>
-  </div>
+const AnimatedStatItem = ({ icon, number, label, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.5 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.05 }}
+    className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all text-center"
+  >
+    <motion.div
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      transition={{ delay: delay + 0.2, type: "spring" }}
+      className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-orange-50 to-purple-50 rounded-full flex items-center justify-center"
+    >
+      {icon}
+    </motion.div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: delay + 0.4 }}
+      className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent"
+    >
+      {number}
+    </motion.div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: delay + 0.6 }}
+      className="text-sm text-gray-600 mt-2"
+    >
+      {label}
+    </motion.div>
+  </motion.div>
 );
 
 const ServicesSection = () => (
-  <div className="py-20 relative" id="services">
-    <div className="absolute inset-0 bg-orange-50 transform -skew-y-3" />
+  <div className="py-24 relative" id="services">
+    <div className="absolute inset-0 bg-gradient-to-b from-orange-50 to-purple-50 transform -skew-y-3" />
     <div className="container mx-auto px-4 relative">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-16"
-      >
-        <span className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium mb-4">
-          What We Offer
-        </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
-          Our Premium Services
-        </h2>
-        <p className="mt-4 text-gray-600">
-          High-quality solutions at industry-leading prices
-        </p>
-      </motion.div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        <ServiceCard
-          icon={<Code className="w-8 h-8" />}
-          title="Custom Software"
-          description="Tailored solutions designed specifically for your business needs and growth objectives"
-          price="From ₹1,000/hour"
-          marketPrice="Market rate: ₹3,500/hour"
-          image="https://images.pexels.com/photos/3761137/pexels-photo-3761137.jpeg?auto=compress&cs=tinysrgb&w=600"
-          features={["Custom Development", "API Integration", "Legacy System Updates"]}
-        />
-        <ServiceCard
-          icon={<Brain className="w-8 h-8" />}
-          title="AI Integration"
-          description="Harness the power of artificial intelligence to automate and optimize your operations"
-          price="From ₹1,000/hour"
-          marketPrice="Market rate: ₹4000/hour"
-          image="https://images.pexels.com/photos/17484970/pexels-photo-17484970/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-how-technology-can-help-humans-learn-and-predict-patterns-in-biology-it-was-created-by-khyati-trehan-as-par.png?auto=compress&cs=tinysrgb&w=600"
-          features={["ML Models", "Data Analytics", "Process Automation"]}
-        />
-        <ServiceCard
+      <SectionHeader
+        badge="Our Services"
+        title="Premium Solutions for Your Success"
+        description="High-quality development services at industry-leading prices"
+      />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <EnhancedServiceCard
           icon={<Globe className="w-8 h-8" />}
           title="Web Development"
           description="Modern, responsive websites that deliver exceptional user experiences"
           price="From ₹900/hour"
           marketPrice="Market rate: ₹2,500/hour"
-          image="https://images.pexels.com/photos/16129877/pexels-photo-16129877/free-photo-of-open-laptop-web-design-development-on-bed.jpeg?auto=compress&cs=tinysrgb&w=600"
-          features={["Responsive Design", "SEO Optimization", "Performance Tuning"]}
+          features={[
+            "Responsive Design",
+            "SEO Optimization",
+            "Performance Tuning",
+            "Modern UI/UX"
+          ]}
+          delay={0}
+        />
+        <EnhancedServiceCard
+          icon={<Code className="w-8 h-8" />}
+          title="Custom Software"
+          description="Tailored solutions designed for your specific business needs"
+          price="From ₹1,000/hour"
+          marketPrice="Market rate: ₹3,500/hour"
+          features={[
+            "Custom Development",
+            "API Integration",
+            "Legacy System Updates",
+            "Scalable Architecture"
+          ]}
+          delay={0.2}
+        />
+        <EnhancedServiceCard
+          icon={<Brain className="w-8 h-8" />}
+          title="AI Integration"
+          description="Harness the power of AI to optimize your operations"
+          price="From ₹1,000/hour"
+          marketPrice="Market rate: ₹4,000/hour"
+          features={[
+            "ML Models",
+            "Data Analytics",
+            "Process Automation",
+            "AI Consulting"
+          ]}
+          delay={0.4}
         />
       </div>
     </div>
   </div>
 );
 
-const ServiceCard = ({ icon, title, description, price, marketPrice, features, image }) => (
+const SectionHeader = ({ badge, title, description }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
-    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
+    viewport={{ once: true }}
+    className="text-center max-w-2xl mx-auto"
   >
-    <div className="relative h-48 overflow-hidden">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover transition-transform group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-      <div className="absolute top-4 right-4 bg-white/90 rounded-full p-2">
-        {icon}
-      </div>
-    </div>
+    <motion.span
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+      className="inline-block px-4 py-2 bg-gradient-to-r from-orange-100 to-purple-100 text-orange-700 rounded-full text-sm font-medium mb-4"
+    >
+      {badge}
+    </motion.span>
+    <motion.h2
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.4 }}
+      className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
+    >
+      {title}
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.6 }}
+      className="text-gray-600"
+    >
+      {description}
+    </motion.p>
+  </motion.div>
+);
+
+const EnhancedServiceCard = ({ icon, title, description, price, marketPrice, features, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.5 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -5 }}
+    className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all overflow-hidden group"
+  >
     <div className="p-8">
-      <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ delay: delay + 0.2, type: "spring" }}
+        className="w-16 h-16 bg-gradient-to-r from-orange-50 to-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+      >
+        {icon}
+      </motion.div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
       <p className="text-gray-600 mb-6">{description}</p>
-      <ul className="space-y-2 mb-6">
+      <ul className="space-y-3 mb-6">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-center gap-2 text-gray-600">
-            <CheckCircle className="w-4 h-4 text-green-500" />
+          <motion.li
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: delay + 0.4 + index * 0.1 }}
+            className="flex items-center gap-2 text-gray-600"
+          >
+            <CheckCircle className="w-5 h-5 text-green-500" />
             {feature}
-          </li>
+          </motion.li>
         ))}
       </ul>
-      <div className="pt-4 border-t">
-        <div className="text-green-600 font-semibold">{price}</div>
+      <div className="pt-6 border-t">
+        <div className="text-green-600 font-semibold text-lg">{price}</div>
         <div className="text-sm text-gray-400 line-through">{marketPrice}</div>
       </div>
     </div>
@@ -336,111 +510,246 @@ const ServiceCard = ({ icon, title, description, price, marketPrice, features, i
 );
 
 const WhyChooseUsSection = () => (
-  <div className="py-20" id="about">
+  <div className="py-24 bg-white" id="about">
     <div className="container mx-auto px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-      >
-        <div>
-          <span className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <motion.span
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-4 py-2 bg-gradient-to-r from-orange-100 to-purple-100 text-orange-700 rounded-full text-sm font-medium"
+          >
             Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Premium Quality, <br />Affordable Prices
-          </h2>
-          <p className="text-gray-600 mb-8">
-            We combine technical expertise with strategic thinking to deliver solutions that drive real business value.
-            Our approach is collaborative, transparent, and focused on your success.
-          </p>
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-4xl md:text-6xl font-bold text-gray-900"
+          >
+            Excellence at
+            <br />
+            <span className="bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent">
+              Affordable Rates
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-lg text-gray-600"
+          >
+            We combine cutting-edge technical expertise with strategic thinking to deliver solutions that drive real business value. Our approach is collaborative, transparent, and focused on your success.
+          </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <FeatureCard
-              icon={<Shield className="w-6 h-6" />}
-              title="Quality Guaranteed"
-              description="Premium quality with every project"
+            <EnhancedFeatureCard
+              icon={Shield}
+              title="Quality Assured"
+              description="Premium quality guaranteed with every project delivery"
+              delay={0.2}
             />
-            <FeatureCard
-              icon={<Laptop className="w-6 h-6" />}
-              title="Modern Tech"
-              description="Latest technologies and frameworks"
+            <EnhancedFeatureCard
+              icon={Laptop}
+              title="Modern Stack"
+              description="Latest technologies and frameworks for optimal performance"
+              delay={0.4}
             />
-            <FeatureCard
-              icon={<Clock className="w-6 h-6" />}
-              title="Fast Delivery"
-              description="Quick turnaround on all projects"
+            <EnhancedFeatureCard
+              icon={Clock}
+              title="Rapid Delivery"
+              description="Quick turnaround without compromising quality"
+              delay={0.6}
             />
-            <FeatureCard
-              icon={<DollarSign className="w-6 h-6" />}
-              title="Best Rates"
-              description="60% below market average"
+            <EnhancedFeatureCard
+              icon={DollarSign}
+              title="Best Value"
+              description="Premium solutions at 60% below market rates"
+              delay={0.8}
             />
           </div>
-        </div>
-        <ProcessShowcase />
-      </motion.div>
-    </div>
-  </div>
-);
-
-const FeatureCard = ({ icon, title, description }) => (
-  <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-    <div className="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 mb-4">
-      {icon}
-    </div>
-    <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-    <p className="text-gray-600">{description}</p>
-  </div>
-);
-
-const ProcessShowcase = () => (
-  <div className="relative">
-    <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 to-purple-500 rounded-2xl opacity-20 blur-xl" />
-    <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl">
-      <img
-        src="/logo.png"
-        alt="Team at work"
-        className="w-full h-auto"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-        <div className="text-white">
-          <h3 className="text-2xl font-bold mb-2">Our Process</h3>
-          <p className="text-white/80">See how we bring your ideas to life</p>
-          <button className="mt-4 px-6 py-2 bg-white text-orange-600 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors">
-            Learn More
-          </button>
-        </div>
+        </motion.div>
+        <EnhancedProcessShowcase />
       </div>
     </div>
   </div>
 );
 
+const EnhancedFeatureCard = ({ icon: Icon, title, description, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.5 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.02 }}
+    className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border border-orange-100"
+  >
+    <div className="w-12 h-12 bg-gradient-to-r from-orange-50 to-purple-50 rounded-xl flex items-center justify-center text-orange-600 mb-4">
+      <Icon className="w-6 h-6" />
+    </div>
+    <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+    <p className="text-gray-600">{description}</p>
+  </motion.div>
+);
+
+const EnhancedProcessShowcase = () => (
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="relative"
+  >
+    <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 to-purple-500 rounded-3xl opacity-20 blur-xl" />
+    <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl">
+      <img
+        src="/logo.png"
+        alt="Development Process"
+        className="w-full h-auto object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8">
+        <div className="text-white max-w-md">
+          <h3 className="text-3xl font-bold mb-4">Our Development Process</h3>
+          <p className="text-white/90 mb-6">
+            Experience our streamlined development process that ensures quality, efficiency, and transparency.
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-white text-orange-600 rounded-full text-sm font-medium hover:bg-orange-50 transition-colors flex items-center gap-2"
+          >
+            Learn More
+            <ArrowRight className="w-4 h-4" />
+          </motion.button>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
 const CTASection = () => (
-  <div className="py-20 bg-gradient-to-r from-orange-600 to-orange-500" id="contact">
-    <div className="container mx-auto px-4">
+  <div className="py-24 relative overflow-hidden" id="contact">
+    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-purple-600" />
+    <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 to-transparent" />
+    </div>
+    <div className="container mx-auto px-4 relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center text-white"
+        viewport={{ once: true }}
+        className="text-center text-white max-w-3xl mx-auto"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          Ready to Get Started?
+        <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          Ready to Transform Your Business?
         </h2>
-        <p className="text-white/80 max-w-2xl mx-auto mb-8">
-          Join hundreds of satisfied clients who have transformed their businesses with our premium solutions at industry-leading prices.
+        <p className="text-xl text-white/90 mb-12">
+          Join hundreds of satisfied clients who have elevated their digital presence with our premium solutions at industry-leading prices.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-4 bg-white text-orange-600 rounded-full font-medium hover:bg-orange-50 transition-colors flex items-center gap-2 justify-center group">
-            Schedule a Free Consultation
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition-colors">
-           <Link to="/casestudy">View Case Studies</Link>
-          </button>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <EnhancedCTAButton
+            text="Schedule Free Consultation"
+            icon={MessageCircle}
+            primary
+          />
+          <EnhancedCTAButton
+            text="View Case Studies"
+            icon={ArrowUpRight}
+            route="/casestudy"
+          />
         </div>
       </motion.div>
     </div>
   </div>
+);
+
+const EnhancedCTAButton = ({ text, icon: Icon, primary, route }) => {
+  const BaseButton = ({ children }) => (
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={`px-8 py-4 rounded-full font-medium flex items-center gap-2 justify-center group transition-all ${primary
+        ? "bg-white text-orange-600 hover:bg-orange-50"
+        : "border-2 border-white text-white hover:bg-white/10"
+        }`}
+    >
+      {children}
+    </motion.button>
+  );
+
+  return route ? (
+    <Link to="/case-studies">
+      <BaseButton>
+        {text}
+        <Icon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </BaseButton>
+    </Link>
+  ) : (
+    <Link to="/inquire">
+      <BaseButton>
+        {text}
+        <Icon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </BaseButton>
+    </Link>
+  );
+};
+
+const QuickContactSection = () => (
+  <div className="py-16 bg-gradient-to-b from-orange-50 to-white">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <ContactCard
+          icon={PhoneCall}
+          title="Call Us"
+          content="+91 8668722207 / 9834153020"
+          action="Call now"
+          onClick={() => window.location.href = 'tel:+918668722207'}
+        />
+        <ContactCard
+          icon={Mail}
+          title="Email Us"
+          content="webreichcommunity@gmail.com"
+          action="Send email"
+          onClick={() => window.location.href = 'mailto:webreichcommunity@gmail.com'}
+        />
+        <ContactCard
+          icon={MessageCircle}
+          title="Live Chat"
+          content="Available 24/7"
+          action="Start chat"
+          onClick={() => window.location.href = 'https://wa.me/918668722207?text=Hi%20WebReich%20Team,%20I%20need%20assistance.'}
+        />
+      </div>
+    </div>
+  </div>
+);
+
+const ContactCard = ({ icon: Icon, title, content, action, onClick }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -5 }}
+    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all text-center"
+  >
+    <div className="w-12 h-12 bg-gradient-to-r from-orange-50 to-purple-50 rounded-full flex items-center justify-center mx-auto mb-4">
+      <Icon className="w-6 h-6 text-orange-600" />
+    </div>
+    <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+    <p className="text-gray-600 mb-4">{content}</p>
+    <button
+      className="text-orange-600 font-medium hover:text-orange-700 transition-colors"
+      onClick={onClick}
+    >
+      {action} →
+    </button>
+  </motion.div>
 );
