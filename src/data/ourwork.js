@@ -3,7 +3,7 @@ export const ourwork = {
         id: 1,
         title: "WebReich: Coding Community",
         industry: "Technology & Education",
-        liveUrl:"https://webreichedu.vercel.app/",
+        liveUrl: "https://webreichedu.vercel.app/",
         duration: "Ongoing since 2024",
         impact: "Empowered 250+ developers",
         clientSize: "250+ members",
@@ -28,12 +28,70 @@ export const ourwork = {
             }
         }
     },
-    "chopscutmeatshop": {
+    "waghadeskinclinic": {
         id: 2,
+        title: "Waghade Skin Clinic",
+        industry: "Healthcare & Dermatology",
+        liveUrl: "https://waghadeskinclinics.in",
+        duration: "Completed in 2024",
+        impact: "Enhanced patient engagement and improved online presence",
+        clientSize: "Serving 500+ patients monthly",
+        summary: "Developed a dynamic website for Dr. Praful Waghade, a renowned dermatologist, featuring interactive tools for patient engagement and personalized care.",
+        imageUrl: "/w-p8.png",
+        tags: ["Healthcare", "Website Development"],
+        slug: "waghadeskinclinic",
+        fullContent: {
+            challenge:
+                "Dr. Praful Waghade's clinic lacked an online presence, making it difficult for patients to access dermatology services and resources efficiently.",
+            solution:
+                "We designed a dynamic website with features like a chatbot for personalized skin prescriptions, a skin quiz for user engagement, and a seamless appointment booking system.",
+            results: [
+                "Increased patient inquiries by 50% within the first month",
+                "Launched interactive features like a skin quiz and chatbot for better patient interaction",
+                "Established a robust online presence for Waghade Skin Clinic"
+            ],
+            testimonial: {
+                quote: "The website transformed the way we connect with our patients. The chatbot and skin quiz are a hit!",
+                author: "Dr. Praful Waghade",
+                position: "Dermatologist & Founder, Waghade Skin Clinic"
+            }
+        }
+    },
+    "networkgraphicwebsite": {
+        id: 3,
+        title: "Network Graphic Website",
+        industry: "Business & Networking",
+        liveUrl: "https://networkgraphic.vercel.app/",
+        duration: "Completed in 2024",
+        impact: "Boosted business outreach and visibility",
+        clientSize: "Used by 100+ businesses",
+        summary: "Created a professional website for Avinash Patil to expand his networking graphic solutions and enhance his brand identity.",
+        imageUrl: "/w-p7.png",
+        tags: ["Business", "Networking"],
+        slug: "networkgraphicwebsite",
+        fullContent: {
+            challenge:
+                "Avinash Patil needed an appealing platform to showcase his network graphic services and attract more clients.",
+            solution:
+                "We developed a sleek, responsive website with an intuitive interface to display services, client testimonials, and a portfolio of completed projects.",
+            results: [
+                "Attracted 30% more client inquiries within three months",
+                "Showcased 20+ completed projects effectively",
+                "Improved brand recognition and business credibility"
+            ],
+            testimonial: {
+                quote: "This website has elevated my business to a new level. Clients now see my work and trust my services more.",
+                author: "Avinash Patil",
+                position: "Founder, Network Graphic Solutions"
+            }
+        }
+    },
+    "chopscutmeatshop": {
+        id: 4,
         title: "Chops Cut Meat Shop: Raw Meat Business Website",
         industry: "E-commerce & Retail",
         duration: "2 Weeks",
-        liveUrl:"https://chopscut.vercel.app/",
+        liveUrl: "https://chopscut.vercel.app/",
         impact: "Increased online sales by 80%",
         clientSize: "500+ customers",
         summary: "Developing a robust e-commerce platform for Chops Cut Meat Shop, enabling online meat sales and streamlined business operations.",
@@ -58,11 +116,11 @@ export const ourwork = {
         }
     },
     "ramkrushananursery": {
-        id: 3,
+        id: 5,
         title: "Ramkrushana Nursery: Online Plant Selling Website",
         industry: "E-commerce & Gardening",
         duration: "3 Weeks",
-        liveUrl:"https://ramkrushna.vercel.app/",
+        liveUrl: "https://ramkrushna.vercel.app/",
         impact: "Enhanced customer reach by 65%",
         clientSize: "300+ customers",
         summary: "Creating an engaging e-commerce platform for Ramkrushana Nursery to sell a wide variety of plants online, making gardening accessible to all.",
@@ -87,11 +145,11 @@ export const ourwork = {
         }
     },
     "webreichcrm": {
-        id: 3,
+        id: 6,
         title: "WebReich CRM: Small Business Management Solution",
         industry: "Software & Business Management",
         duration: "2 Months",
-        liveUrl:"https://mahalakshmi-xerox.vercel.app/",
+        liveUrl: "https://mahalakshmi-xerox.vercel.app/",
         impact: "Boosted operational efficiency by 75%",
         clientSize: "50+ businesses",
         summary: "Developing a comprehensive CRM tool tailored for small businesses to manage daily tasks, track updates, and enhance productivity.",
@@ -116,11 +174,11 @@ export const ourwork = {
         }
     },
     "agriquip": {
-        id: 5,
+        id: 7,
         title: "Agricultural Equipment Rental Platform",
         industry: "Agriculture",
         duration: "4 Days",
-        liveUrl:"https://agriequip.vercel.app/",
+        liveUrl: "https://agriequip.vercel.app/",
         impact: "70% cost savings for farmers",
         clientSize: "1000+ users",
         summary: "Developing an online platform for renting agricultural equipment, empowering farmers with affordable solutions.",
@@ -145,11 +203,11 @@ export const ourwork = {
         }
     },
     "nisargnursery": {
-        id: 6,
+        id: 8,
         title: "Plant Selling and Marketing Website",
         industry: "Horticulture",
         duration: "20 Days",
-        liveUrl:"https://nisargnursery.vercel.app/",
+        liveUrl: "https://nisargnursery.vercel.app/",
         impact: "35% increase in plant sales",
         clientSize: "1500+ visitors monthly",
         summary: "A visually appealing website for Nisarg Nursery to showcase and sell plants while enhancing their brand presence.",

@@ -21,6 +21,8 @@ const menuItems = [
     href: "/ourwork",
     submenu: [
       { name: "WebReich Community", href: "/ourwork/webreichcommunity" },
+      { name: "Waghade Skin CLinic", href: "/ourwork/waghadeskinclinic" },
+      { name: "Network Graphic", href: "/ourwork/networkgraphicwebsite" },
       { name: "Chops Cut Meat Shop", href: "/ourwork/chopscutmeatshop" },
       { name: "WebReich CRM", href: "/ourwork/webreichcrm" },
       { name: "Ram Krushana Nursery", href: "/ourwork/ramkrushananursery" },
