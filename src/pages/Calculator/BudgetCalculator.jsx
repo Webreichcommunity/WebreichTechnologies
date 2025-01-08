@@ -411,7 +411,7 @@ Phone: ${formData.phone}
 Email: ${formData.email}
 `;
 
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=8668722207&text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${formData.phone}&text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
 
