@@ -30,7 +30,7 @@ const menuItems = [
       { name: "Nisarg Nursery", href: "/ourwork/nisargnursery" },
     ]
   },
-  { name: "Budget Calculator", href: "/inquire" },
+  { name: "Budget Calculator", href: "/budget" },
   { name: "Resources", href: "/resources" },
 ];
 

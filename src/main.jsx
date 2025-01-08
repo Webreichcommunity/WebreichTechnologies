@@ -10,6 +10,7 @@ import CaseStudyArticle from './pages/CaseStudyArticle/CaseStudyArticle.jsx'
 import InquirePage from './pages/InquirePage/InquirePage;.jsx'
 import OurWorkArticle from './pages/OurWorkArticle/OurWorkArticle.jsx'
 import ResourcesPage from './pages/ResourcesPage/ResourcesPage.jsx'
+import BudgetCalculator from './pages/Calculator/BudgetCalculator.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/case-studies" element={<CaseStudyPage />} />
       <Route path="/case-studies/:slug" element={<CaseStudyArticle />} />
       <Route path="/inquire" element={<InquirePage />} />
+      <Route path="/budget" element={<BudgetCalculator />} />
       <Route path="/resources" element={<ResourcesPage />} />
     </Route>
   )
