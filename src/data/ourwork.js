@@ -57,8 +57,38 @@ export const ourwork = {
             }
         }
     },
-    "networkgraphicwebsite": {
+    "laholeeyehospitalcrm": {
         id: 3,
+        title: "Lahole Eye Hospital CRM",
+        industry: "Healthcare & Ophthalmology",
+        liveUrl: "https://lahole.vercel.app/",
+        duration: "Completed in 2024",
+        impact: "Streamlined patient data management and improved operational efficiency",
+        clientSize: "Serving 1000+ patients monthly",
+        summary: "Developed a custom CRM software for Lahole Eye Hospital to manage patient data, appointments, and treatment records efficiently, ensuring seamless operations and enhanced patient care.",
+        imageUrl: "/lahole.png",
+        tags: ["Healthcare", "CRM Development", "Custom Software"],
+        slug: "laholeeyehospitalcrm",
+        fullContent: {
+            challenge:
+                "Lahole Eye Hospital faced challenges in managing patient data, appointments, and treatment records manually, leading to inefficiencies and potential errors in patient care.",
+            solution:
+                "We built a custom CRM software tailored to their needs, featuring patient data management, appointment scheduling, treatment history tracking, and automated reminders for follow-ups.",
+            results: [
+                "Reduced administrative workload by 40% through automation",
+                "Improved patient data accuracy and accessibility",
+                "Enhanced patient satisfaction with timely reminders and follow-ups",
+                "Streamlined appointment scheduling, reducing wait times by 30%"
+            ],
+            testimonial: {
+                quote: "The CRM software has revolutionized how we manage patient data. It’s efficient, user-friendly, and has significantly improved our operations.",
+                author: "Dr. Anjali Lahole",
+                position: "Ophthalmologist & Founder, Lahole Eye Hospital"
+            }
+        }
+    },
+    "networkgraphicwebsite": {
+        id: 4,
         title: "Network Graphic Website",
         industry: "Business & Networking",
         liveUrl: "https://networkgraphic.vercel.app/",
@@ -87,7 +117,7 @@ export const ourwork = {
         }
     },
     "chopscutmeatshop": {
-        id: 4,
+        id: 5,
         title: "Chops Cut Meat Shop: Raw Meat Business Website",
         industry: "E-commerce & Retail",
         duration: "2 Weeks",
@@ -116,7 +146,7 @@ export const ourwork = {
         }
     },
     "ramkrushananursery": {
-        id: 5,
+        id: 6,
         title: "Ramkrushana Nursery: Online Plant Selling Website",
         industry: "E-commerce & Gardening",
         duration: "3 Weeks",
@@ -145,7 +175,7 @@ export const ourwork = {
         }
     },
     "webreichcrm": {
-        id: 6,
+        id: 7,
         title: "WebReich CRM: Small Business Management Solution",
         industry: "Software & Business Management",
         duration: "2 Months",
@@ -174,7 +204,7 @@ export const ourwork = {
         }
     },
     "agriquip": {
-        id: 7,
+        id: 8,
         title: "Agricultural Equipment Rental Platform",
         industry: "Agriculture",
         duration: "4 Days",
@@ -203,7 +233,7 @@ export const ourwork = {
         }
     },
     "nisargnursery": {
-        id: 8,
+        id: 9,
         title: "Plant Selling and Marketing Website",
         industry: "Horticulture",
         duration: "20 Days",
