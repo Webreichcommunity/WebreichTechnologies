@@ -28,8 +28,63 @@ export const ourwork = {
             }
         }
     },
+    "solarzatkamachine": {
+        "id": 2,
+        "title": "Solar Zatka Machine",
+        "industry": "Renewable Energy & Pest Control",
+        "liveUrl": "https://solarzatka.vercel.app/",
+        "duration": "Completed in 2024",
+        "impact": "Revolutionized eco-friendly pest control with solar technology",
+        "clientSize": "Protecting 200+ farms across Maharashtra",
+        "summary": "Developed an innovative e-commerce platform for Shekhar Amale's Solar Zatka Machine - India's first solar-powered pest control solution for farms and warehouses.",
+        "imageUrl": "/solar.png",
+        "tags": ["E-commerce", "Renewable Energy", "IoT"],
+        "slug": "solarzatkamachine",
+        "fullContent": {
+            "challenge": "Traditional pest control methods were harmful to crops and environment. Shekhar Amale's solar innovation needed a digital platform to reach farmers nationwide.",
+            "solution": "We created a high-conversion e-commerce website with product demos, farmer testimonials, and IoT integration showing real-time pest elimination statistics.",
+            "results": [
+                "300% increase in inquiries within first 2 months",
+                "Enabled online orders with EMI options for farmers",
+                "Showcased environmental impact with live counters of pests eliminated"
+            ],
+            "testimonial": {
+                "quote": "Webreich made our solar innovation look as cutting-edge as it truly is! Orders tripled after website launch.",
+                "author": "Shekhar Amale",
+                "position": "Inventor, Solar Zatka Machine"
+            }
+        }
+    },
+    "digitalmenucard": {
+        "id": 3,
+        "title": "QR Digital Menu Card",
+        "industry": "Food Tech & Hospitality",
+        "liveUrl": "https://mirch-masala.vercel.app/",
+        "duration": "Ongoing since 2023",
+        "impact": "Increased average order value by 35% for partner restaurants",
+        "clientSize": "Used by 50+ restaurants including Hotel Mirch Masala",
+        "summary": "Developed a revolutionary contactless ordering system where customers scan QR codes to view digital menus, place orders, and pay directly from their tables.",
+        "imageUrl": "/mirch.png",
+        "tags": ["SaaS", "Food Tech", "QR Technology"],
+        "slug": "digitalmenucard",
+        "fullContent": {
+            "challenge": "Restaurants like Hotel Mirch Masala struggled with printed menus (costly to update) and missed upsell opportunities during dine-in experiences.",
+            "solution": "Our white-label digital menu system with: \n- Real-time menu updates\n- AI-powered food recommendations\n- One-click repeat orders\n- Built-in loyalty programs",
+            "results": [
+                "35% increase in average order value for Hotel Mirch Masala",
+                "Reduced menu printing costs by 90%",
+                "Faster table turnover with instant order notifications to kitchen",
+                "Upsell success increased through mouth-watering food visuals"
+            ],
+            "testimonial": {
+                "quote": "Our biryani sales doubled since implementing Webreich's digital menu. Customers love the food videos and easy reordering!",
+                "author": "Yogesh Agrawal",
+                "position": "Owner, Hotel Mirch Masala"
+            }
+        }
+    },
     "waghadeskinclinic": {
-        id: 2,
+        id: 4,
         title: "Waghade Skin Clinic",
         industry: "Healthcare & Dermatology",
         liveUrl: "https://waghadeskinclinics.in",
@@ -58,7 +113,7 @@ export const ourwork = {
         }
     },
     "laholeeyehospitalcrm": {
-        id: 3,
+        id: 5,
         title: "Lahole Eye Hospital CRM",
         industry: "Healthcare & Ophthalmology",
         liveUrl: "https://lahole.vercel.app/",
@@ -88,7 +143,7 @@ export const ourwork = {
         }
     },
     "networkgraphicwebsite": {
-        id: 4,
+        id: 6,
         title: "Network Graphic Website",
         industry: "Business & Networking",
         liveUrl: "https://networkgraphic.vercel.app/",
@@ -117,7 +172,7 @@ export const ourwork = {
         }
     },
     "chopscutmeatshop": {
-        id: 5,
+        id: 7,
         title: "Chops Cut Meat Shop: Raw Meat Business Website",
         industry: "E-commerce & Retail",
         duration: "2 Weeks",
@@ -146,7 +201,7 @@ export const ourwork = {
         }
     },
     "ramkrushananursery": {
-        id: 6,
+        id: 8,
         title: "Ramkrushana Nursery: Online Plant Selling Website",
         industry: "E-commerce & Gardening",
         duration: "3 Weeks",
@@ -175,7 +230,7 @@ export const ourwork = {
         }
     },
     "webreichcrm": {
-        id: 7,
+        id: 9,
         title: "WebReich CRM: Small Business Management Solution",
         industry: "Software & Business Management",
         duration: "2 Months",
@@ -204,7 +259,7 @@ export const ourwork = {
         }
     },
     "agriquip": {
-        id: 8,
+        id: 10,
         title: "Agricultural Equipment Rental Platform",
         industry: "Agriculture",
         duration: "4 Days",
@@ -233,7 +288,7 @@ export const ourwork = {
         }
     },
     "nisargnursery": {
-        id: 9,
+        id: 11,
         title: "Plant Selling and Marketing Website",
         industry: "Horticulture",
         duration: "20 Days",
