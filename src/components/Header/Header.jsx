@@ -33,6 +33,7 @@ const menuItems = [
   },
   { name: "Budget Calculator", href: "/budget" },
   { name: "Resources", href: "/resources" },
+  { name: "Careers", href: "/careers" },
 ];
 
 export default function Header() {
