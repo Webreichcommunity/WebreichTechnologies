@@ -11,6 +11,9 @@ import InquirePage from './pages/InquirePage/InquirePage;.jsx'
 import OurWorkArticle from './pages/OurWorkArticle/OurWorkArticle.jsx'
 import ResourcesPage from './pages/ResourcesPage/ResourcesPage.jsx'
 import BudgetCalculator from './pages/Calculator/BudgetCalculator.jsx'
+import Career from './pages/Career/Career.jsx'
+import InternShip from './pages/InternShip/InternShip.jsx'
+import GenerateCertificates from './pages/InternShip/GenerateCertificates.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +26,9 @@ const router = createBrowserRouter(
       <Route path="/inquire" element={<InquirePage />} />
       <Route path="/budget" element={<BudgetCalculator />} />
       <Route path="/resources" element={<ResourcesPage />} />
+      <Route path="/careers" element={<Career />} />
+      <Route path="/internship-webreich-@3535" element={<InternShip />} />
+      <Route path="/generate-certificates" element={<GenerateCertificates />} />
     </Route>
   )
 )
