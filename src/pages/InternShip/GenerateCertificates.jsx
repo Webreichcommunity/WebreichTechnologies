@@ -471,14 +471,14 @@ export default function GenerateCertificates() {
                       </p>
                       <div className="mt-4 text-center">
                         <img
-                          src="/sign.png"
+                          src="/Shri_sign.png"
                           alt="Authorized signature"
                           className="mx-auto h-14"
                         />
                         <p className="mt-1 text-xs text-slate-500">
                           Authorized Signatory
                         </p>
-                        <p className="text-xs text-slate-500">Akshay D. Bhaltilak</p>
+                        <p className="text-xs text-slate-500">Shriyash R. Rulhe</p>
                       </div>
                     </div>
                     <div className="text-center">
