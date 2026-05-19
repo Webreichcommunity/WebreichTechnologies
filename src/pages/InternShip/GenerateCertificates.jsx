@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   collection,
   deleteDoc,
@@ -31,7 +31,7 @@ export default function GenerateCertificates() {
       }));
       setInterns(items);
       setListStatus("success");
-    } catch (error) {
+    } catch {
       setInterns([]);
       setListStatus("error");
     }
@@ -61,7 +61,7 @@ export default function GenerateCertificates() {
       } else {
         setStatus("empty");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
@@ -92,7 +92,7 @@ export default function GenerateCertificates() {
         setIntern(null);
         setStatus("idle");
       }
-    } catch (error) {
+    } catch {
       // keep UI calm; errors are handled by admin re-try
     }
   };
@@ -101,12 +101,6 @@ export default function GenerateCertificates() {
   const issueDay = String(issueDate.getDate()).padStart(2, "0");
   const issueMonth = String(issueDate.getMonth() + 1).padStart(2, "0");
   const issueYear = String(issueDate.getFullYear()).slice(-2);
-  const issueDateLong = issueDate.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-
   const sequenceMap = useMemo(() => {
     const sorted = [...interns].sort((a, b) => {
       const aTime = a?.createdAt?.seconds ? a.createdAt.seconds : 0;
@@ -349,7 +343,7 @@ export default function GenerateCertificates() {
                       <img src="/logo.png" alt="WebReich Logo" className="h-14" />
                       <div>
                         <p className="text-base font-semibold tracking-[0.2em] text-orange-500">
-                          WEBREICH TECHNOLOGIES
+                          WebReich
                         </p>
                         <p className="mt-1 text-xs text-slate-500">
                           (An IT Solutions & Software Development Company)
@@ -388,7 +382,7 @@ export default function GenerateCertificates() {
                       has successfully completed an internship with
                     </p>
                     <p className="mt-2 text-lg font-semibold text-slate-900">
-                      WebReich Technologies
+                      WebReich
                     </p>
                     <p className="mt-3 text-base text-slate-700">
                       as a{" "}
@@ -467,7 +461,7 @@ export default function GenerateCertificates() {
                   <div className="mt-6 flex items-end justify-between">
                     <div className="text-left text-sm text-slate-700">
                       <p className="font-semibold text-slate-900">
-                        For WebReich Technologies
+                        For WebReich
                       </p>
                       <div className="mt-4 text-center">
                         <img

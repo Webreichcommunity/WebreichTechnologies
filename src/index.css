@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.webreich-sharp-ui [class*="rounded"] {
+  border-radius: 0.25rem !important;
+}

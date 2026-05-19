@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   addDoc,
   collection,
@@ -65,7 +65,7 @@ export default function InternShip() {
       const internsQuery = query(internsRef, orderBy("createdAt", "desc"), limit(5));
       const snapshot = await getDocs(internsQuery);
       setRecent(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    } catch (error) {
+    } catch {
       setRecent([]);
     }
   };
@@ -356,7 +356,7 @@ export default function InternShip() {
                   page to issue the official internship certificate.
                 </p>
                 <a
-                  href="/generate-certificates"
+                  href="/admin/certificates"
                   className="mt-5 inline-flex items-center rounded-full bg-orange-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-orange-700"
                 >
                   Generate Certificate
