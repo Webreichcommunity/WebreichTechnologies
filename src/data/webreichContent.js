@@ -201,7 +201,7 @@ export const labs = [
     title: "Gangootri Algo Trading Bot",
     text:
       "A research experiment around rules-based trading workflows, strategy testing, risk boundaries, alerts, and decision discipline.",
-    image: "/w-p3.png",
+    image: "https://res.cloudinary.com/dz0dia5a1/image/upload/v1779262111/Screenshot_2026-05-20_125405_otxqje.png",
     problem:
       "Trading decisions often become emotional, inconsistent, and hard to audit when strategy rules live only in a trader's memory.",
     build:
@@ -216,7 +216,7 @@ export const labs = [
     title: "Document AI OCR",
     text:
       "A document intelligence experiment that converts scanned text into structured data for forms, certificates, and business records.",
-    image: "/w-p8.png",
+    image: "https://res.cloudinary.com/dz0dia5a1/image/upload/v1779262109/Screenshot_2026-05-20_125807_p5mizo.png",
     problem:
       "Many business records still arrive as photos, PDFs, and scanned forms, which creates manual entry work and slows down teams.",
     build:

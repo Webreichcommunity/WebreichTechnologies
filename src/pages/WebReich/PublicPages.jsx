@@ -652,7 +652,7 @@ export function Overview() {
             <h1 className="mt-6 text-4xl font-semibold leading-[1.03] sm:text-5xl lg:text-6xl">
               Building <span className="text-orange-400">digital infrastructure</span> for modern businesses.
             </h1>
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-white/70">
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-white/90">
               WebReich develops software platforms, automation systems, and operational tools that help businesses scale with clarity, speed, and trust.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
@@ -718,7 +718,7 @@ export function Overview() {
         eyebrow="What We Build"
         title="Software that makes daily business easier to see, control, and scale."
         text="WebReich turns practical business problems into clean digital systems: customer journeys, admin workflows, dashboards, automation, payments, records, inquiries, and owner-level reporting."
-        image="/w-p7.png"
+        image="/P3.png"
         points={[
           "Products for repeated sector problems, from hospitality to construction and retail.",
           "Client platforms built around real staff behavior, not only attractive screens.",
@@ -1063,6 +1063,7 @@ export function IndustriesPage() {
   return (
     <PageShell
       eyebrow="Industries"
+        image="/P4.png"
       title="Industries where WebReich has practical workflow understanding."
       intro="Every sector teaches a different rhythm: trust, records, field movement, repeat customers, urgent decisions, and owner-level visibility."
     >
@@ -1136,6 +1137,7 @@ export function VisionPage() {
   return (
     <PageShell
       eyebrow="Vision and Mission"
+      image="/vision.png"
       title="Make real businesses faster, scalable, and easier to operate through software."
       intro="WebReich exists to solve practical business problems with software that actually helps owners, teams, and customers move better."
     >
@@ -1211,6 +1213,7 @@ export function InsightsPage() {
     <PageShell
       dark
       eyebrow="Insights"
+        image="/P6.png"
       title="Readable thinking on software, automation, careers, and company building."
       intro="Insights are managed from the admin panel. Posts support bold text, italic text, and linked words using simple markdown."
     >
@@ -1326,14 +1329,14 @@ export function FounderPage() {
       role: "Founder",
       text:
         "Builder and product thinker leading WebReich toward practical software products, automation systems, and a trusted Bharat business network.",
-      href: "https://webreich.in",
+      href: "https://shriyashwebreich.site/",
     },
     {
       name: "Akshay Bhaltilak",
       role: "Co-founder",
       text:
         "Co-builder focused on execution, collaboration, and turning WebReich's experiments into useful outcomes for clients and learners.",
-      href: "https://webreich.in",
+      href: "https://www.akshaybhaltilak.site/",
     },
   ];
   return (
@@ -1354,6 +1357,7 @@ export function FounderPage() {
       />
       <PageShell
         eyebrow="Founders"
+        image="/P6.png"
         title="The people shaping WebReich with product discipline and ground-level business learning."
         intro="WebReich is founder-led, which keeps the company close to client problems, product decisions, and long-term trust."
       >
@@ -1380,6 +1384,7 @@ export function EngineeringPage() {
   return (
     <PageShell
       eyebrow="Engineering"
+      image="/P5.png"
       title="Engineering experiments shaped around real operational problems."
       intro="WebReich engineering focuses on the hard part behind products: rules, data, automation, interfaces, reliability, and decision visibility."
     >
@@ -1611,6 +1616,7 @@ export function CareersPage() {
       `}</style>
       <PageShell
         eyebrow="Careers"
+        image="/P7.png"
         title="Build with WebReich, or verify the work you already completed."
         intro="Careers at WebReich are practical: real products, real client workflows, real ownership, and certificate-backed proof for verified interns."
       >
