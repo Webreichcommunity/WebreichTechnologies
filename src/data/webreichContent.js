@@ -16,8 +16,8 @@ export const products = [
     description:
       "Restaurant OS is designed for hospitality teams that need faster updates, cleaner service flow, and daily visibility without heavy enterprise software.",
     status: "Build-ready",
-    image: "/mirch.png",
-    images: ["/mirch.png", "/w-p2.png", "/w-p3.png"],
+    image: "/P1.png",
+    images: ["/P1.png", "/P2.png", "/P3.png"],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["QR ordering", "Kitchen workflow", "Menu intelligence", "Revenue analytics"],
     clientFeedbackOne: "The menu updates became simpler and the brand presentation felt much more premium.",
@@ -36,8 +36,8 @@ export const products = [
     description:
       "Civil CRM brings inquiries, site updates, quotations, follow-ups, documents, and owner visibility into one calm workspace.",
     status: "Prototype",
-    image: "/w-p7.png",
-    images: ["/w-p7.png", "/w-p8.png", "/w-p6.png"],
+    image: "/P2.png",
+    images: ["/P2.png", "/P3.png", "/P4.png"],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Lead pipeline", "Site updates", "Quotation flow", "Follow-up reminders"],
     clientFeedbackOne: "The follow-up discipline improved because every lead had a visible next step.",
@@ -56,8 +56,8 @@ export const products = [
     description:
       "A showroom-ready digital rate board that improves trust, keeps staff aligned, and gives jewellery brands a sharper in-store presence.",
     status: "Concept",
-    image: "/w-p1.png",
-    images: ["/w-p1.png", "/w-p4.png", "/w-p5.png"],
+    image: "/P3.png",
+    images: ["/P3.png", "/P4.png", "/P5.png"],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     features: ["Live rate board", "Branch display", "WhatsApp sharing", "Brand templates"],
     clientFeedbackOne: "Customers understood rates faster because the display looked official and current.",
@@ -79,8 +79,8 @@ export const projects = [
     description:
       "WebReich studied the patient journey and shaped a responsive CRM that makes records easier to find, appointments easier to manage, and daily admin work more predictable.",
     workLink: "https://webreich.in",
-    image: "/lahole.png",
-    images: ["/lahole.png", "/w-p7.png", "/w-p8.png"],
+    image: "/P4.png",
+    images: ["/P4.png", "/P5.png", "/P6.png"],
     clientFeedback: "The team received a cleaner view of patient information and appointment flow.",
     clientName: "Lahole Eye Hospital",
     problem: "Patient records, appointments, and follow-ups needed a cleaner operating system.",
@@ -97,8 +97,8 @@ export const projects = [
     description:
       "The experience turns the restaurant menu into a live digital asset with categories, visuals, offer space, and easier updates for the owner.",
     workLink: "https://webreich.in",
-    image: "/mirch.png",
-    images: ["/mirch.png", "/w-p2.png", "/w-p3.png"],
+    image: "/P5.png",
+    images: ["/P5.png", "/P6.png", "/P7.png"],
     clientFeedback: "Menu edits became quick and the customer-facing experience looked sharper.",
     clientName: "Restaurant Client",
     problem: "Printed menus were slow to update and did not support visual upselling.",
@@ -115,8 +115,8 @@ export const projects = [
     description:
       "The platform presents inventory in a structured way and turns browsing into clean customer inquiries for local teams.",
     workLink: "https://webreich.in",
-    image: "/w-p5.png",
-    images: ["/w-p5.png", "/w-p6.png", "/w-p1.png"],
+    image: "/P6.png",
+    images: ["/P6.png", "/P7.png", "/P1.png"],
     clientFeedback: "The catalog made the business easier to discover and explain online.",
     clientName: "Retail Partner",
     problem: "Plant catalog, inquiries, and local sales needed a digital layer.",
@@ -130,7 +130,7 @@ export const blogs = [
   {
     id: "software-for-real-businesses",
     title: "Software for Real Indian Businesses",
-    image: "/w-p8.png",
+    image: "/P7.png",
     author: "WebReich Team",
     authorBio:
       "The WebReich team writes from active product and client work across software systems, automation, and business operations.",
@@ -144,7 +144,7 @@ export const blogs = [
   {
     id: "why-products-matter",
     title: "Why WebReich Is Moving Toward Products",
-    image: "/w-p6.png",
+    image: "/hero.png",
     author: "Shriyash Rulhe",
     authorBio:
       "Founder of WebReich, focused on turning service learning into practical products, automation systems, and a stronger Bharat business network.",
@@ -231,7 +231,7 @@ export const labs = [
     title: "Workflow AI Automations",
     text:
       "Internal prototypes for proposal writing, CRM prompts, reminders, reports, and owner-facing summaries.",
-    image: "/w-p7.png",
+    image: "/P7.png",
     problem:
       "Owners lose time creating follow-ups, reports, proposal notes, and daily summaries that should come naturally from business data.",
     build:

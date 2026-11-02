@@ -31,7 +31,7 @@
         "addressRegion": "Maharashtra",
         "addressCountry": "IN"
       },
-      "description": "WebReich is an Indian software company building software platforms, business operating systems, automation systems, CRM products, restaurant technology, gold rate software, and operational infrastructure."
+      "description": "WebReich is a software company in Akola, Maharashtra, building custom software, web applications, CRM products, automation systems, and digital infrastructure for businesses across India."
     },
     {
       "@context": "https://schema.org",
@@ -51,7 +51,7 @@
       "logo": "https://webreich.in/logo.png",
       "email": "webreichcommunity@gmail.com",
       "telephone": "+91 86687 22207",
-      "priceRange": "$$",
+      "priceRange": "₹₹",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Akola",
@@ -86,6 +86,64 @@
         "React.js",
         "Firebase",
         "SaaS products"
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom software development",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "provider": {
+              "@id": "https://webreich.in/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "CRM development",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "provider": {
+              "@id": "https://webreich.in/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web application development",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "provider": {
+              "@id": "https://webreich.in/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Business process automation",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "provider": {
+              "@id": "https://webreich.in/#organization"
+            }
+          }
+        }
       ]
     },
     {
@@ -105,12 +163,7 @@
       "publisher": {
         "@id": "https://webreich.in/#organization"
       },
-      "inLanguage": "en-IN",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://webreich.in/insights?search={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "en-IN"
     },
     {
       "@context": "https://schema.org",
@@ -120,15 +173,10 @@
         "@type": "Brand",
         "name": "WebReich"
       },
-      "image": "https://webreich.in/mirch.png",
+      "url": "https://webreich.in/products/restaurant-os",
+      "image": "https://webreich.in/P1.png",
       "description": "Restaurant OS is designed for hospitality teams that need faster updates, cleaner service flow, and daily visibility without heavy enterprise software.",
-      "category": "Hospitality SaaS",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://webreich.in/products/restaurant-os",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
-      }
+      "category": "Hospitality SaaS"
     },
     {
       "@context": "https://schema.org",
@@ -137,17 +185,10 @@
       "applicationCategory": "Hospitality SaaS",
       "operatingSystem": "Web",
       "url": "https://webreich.in/products/restaurant-os",
-      "image": "https://webreich.in/mirch.png",
+      "image": "https://webreich.in/P1.png",
       "description": "Restaurant OS is designed for hospitality teams that need faster updates, cleaner service flow, and daily visibility without heavy enterprise software.",
       "creator": {
         "@id": "https://webreich.in/#organization"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://webreich.in/products/restaurant-os"
       }
     },
     {
@@ -158,15 +199,10 @@
         "@type": "Brand",
         "name": "WebReich"
       },
-      "image": "https://webreich.in/w-p7.png",
+      "url": "https://webreich.in/products/civil-crm",
+      "image": "https://webreich.in/P2.png",
       "description": "Civil CRM brings inquiries, site updates, quotations, follow-ups, documents, and owner visibility into one calm workspace.",
-      "category": "Construction Operations",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://webreich.in/products/civil-crm",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
-      }
+      "category": "Construction Operations"
     },
     {
       "@context": "https://schema.org",
@@ -175,17 +211,10 @@
       "applicationCategory": "Construction Operations",
       "operatingSystem": "Web",
       "url": "https://webreich.in/products/civil-crm",
-      "image": "https://webreich.in/w-p7.png",
+      "image": "https://webreich.in/P2.png",
       "description": "Civil CRM brings inquiries, site updates, quotations, follow-ups, documents, and owner visibility into one calm workspace.",
       "creator": {
         "@id": "https://webreich.in/#organization"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://webreich.in/products/civil-crm"
       }
     },
     {
@@ -196,15 +225,10 @@
         "@type": "Brand",
         "name": "WebReich"
       },
-      "image": "https://webreich.in/w-p1.png",
+      "url": "https://webreich.in/products/gold-rate-board",
+      "image": "https://webreich.in/P3.png",
       "description": "A showroom-ready digital rate board that improves trust, keeps staff aligned, and gives jewellery brands a sharper in-store presence.",
-      "category": "Jewellery Tech",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://webreich.in/products/gold-rate-board",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
-      }
+      "category": "Jewellery Tech"
     },
     {
       "@context": "https://schema.org",
@@ -213,17 +237,10 @@
       "applicationCategory": "Jewellery Tech",
       "operatingSystem": "Web",
       "url": "https://webreich.in/products/gold-rate-board",
-      "image": "https://webreich.in/w-p1.png",
+      "image": "https://webreich.in/P3.png",
       "description": "A showroom-ready digital rate board that improves trust, keeps staff aligned, and gives jewellery brands a sharper in-store presence.",
       "creator": {
         "@id": "https://webreich.in/#organization"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://webreich.in/products/gold-rate-board"
       }
     },
     {
@@ -231,9 +248,9 @@
       "@type": "Article",
       "headline": "Software for Real Indian Businesses",
       "description": "The next useful software wave will serve owner-led businesses that need clarity, automation, and trust.",
-      "image": "https://webreich.in/w-p8.png",
-      "url": "https://webreich.in/insight/software-for-real-indian-businesses",
-      "mainEntityOfPage": "https://webreich.in/insight/software-for-real-indian-businesses",
+      "image": "https://webreich.in/P7.png",
+      "url": "https://webreich.in/insight/software-for-real-businesses",
+      "mainEntityOfPage": "https://webreich.in/insight/software-for-real-businesses",
       "author": {
         "@type": "Person",
         "name": "WebReich Team"
@@ -249,9 +266,9 @@
       "@type": "Article",
       "headline": "Why WebReich Is Moving Toward Products",
       "description": "Services build cashflow. Products build company value. WebReich is combining both with a product-first roadmap.",
-      "image": "https://webreich.in/w-p6.png",
-      "url": "https://webreich.in/insight/why-webreich-is-moving-toward-products",
-      "mainEntityOfPage": "https://webreich.in/insight/why-webreich-is-moving-toward-products",
+      "image": "https://webreich.in/hero.png",
+      "url": "https://webreich.in/insight/why-products-matter",
+      "mainEntityOfPage": "https://webreich.in/insight/why-products-matter",
       "author": {
         "@type": "Person",
         "name": "Shriyash Rulhe"

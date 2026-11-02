@@ -2,7 +2,7 @@ export const siteConfig = {
   brandName: "WebReich",
   legalName: "WebReich Technologies",
   baseUrl: "https://webreich.in",
-  defaultImage: "/logo.png",
+  defaultImage: "/hero.png",
   themeColor: "#f97316",
   locale: "en_IN",
   email: "webreichcommunity@gmail.com",
@@ -39,6 +39,9 @@ const sharedKeywords = [
   "Web development company in Akola",
   "software company Akola",
   "Maharashtra software company",
+  "software company in Maharashtra",
+  "software company in India",
+  "custom software development company India",
   "business automation systems India",
   "React developers Akola",
   "SaaS company Maharashtra",
@@ -47,13 +50,15 @@ const sharedKeywords = [
 export const routeSeo = {
   overview: {
     path: "/",
-    title: "WebReich - Digital Infrastructure for Modern Businesses",
+    title: "Software Company in Maharashtra & India | WebReich",
     description:
-      "WebReich builds software platforms, automation systems, CRM products, and operational tools for modern businesses across India.",
-    image: "/w-p8.png",
+      "WebReich is a software company in Akola, Maharashtra, building custom software, CRM, web apps, and business automation for companies across India.",
+    image: "/hero.png",
     keywords: [
       ...sharedKeywords,
       "software company India",
+      "best software company in Maharashtra",
+      "best software company in India",
       "digital infrastructure",
       "software systems",
       "modern business systems",
@@ -64,7 +69,7 @@ export const routeSeo = {
     title: "WebReich Products - CRM, Restaurant OS, Gold Rate and Automation Software",
     description:
       "Explore WebReich software products for CRM, restaurant technology, gold rate displays, business automation, and SaaS operating systems.",
-    image: "/w-p7.png",
+    image: "/P3.png",
     keywords: [
       ...sharedKeywords,
       "CRM software company India",
@@ -80,7 +85,7 @@ export const routeSeo = {
     title: "WebReich Work - Custom Software and Web Development in Akola",
     description:
       "Selected WebReich projects across websites, CRM systems, business platforms, and custom software development for Maharashtra businesses.",
-    image: "/lahole.png",
+    image: "/P1.png",
     keywords: [
       ...sharedKeywords,
       "Best web developers in Akola",
@@ -94,7 +99,7 @@ export const routeSeo = {
     title: "Industries WebReich Serves - Restaurant, Jewellery, Construction and Retail Software",
     description:
       "WebReich builds restaurant technology, jewellery digital solutions, construction CRM, retail systems, and automation for operational businesses.",
-    image: "/w-p5.png",
+    image: "/P2.png",
     keywords: [
       ...sharedKeywords,
       "restaurant technology",
@@ -109,7 +114,7 @@ export const routeSeo = {
     title: "WebReich Vision - Indian Software Innovation for Business Operations",
     description:
       "Learn WebReich's mission to build practical Indian software innovation, operational technology, and product-backed infrastructure for businesses.",
-    image: "/solar.png",
+    image: "/vision.png",
     keywords: [
       ...sharedKeywords,
       "WebReich mission",
@@ -123,7 +128,7 @@ export const routeSeo = {
     title: "WebReich Insights - Software, Automation and Startup Operating Notes",
     description:
       "Read WebReich insights on software platforms, automation systems, business infrastructure, careers, and company building in India.",
-    image: "/w-p8.png",
+    image: "/P5.png",
     keywords: [
       ...sharedKeywords,
       "software insights India",
@@ -136,7 +141,7 @@ export const routeSeo = {
     title: "WebReich Founders - Shriyash Rulhe and Akshay Bhaltilak",
     description:
       "Meet WebReich founders Shriyash Rulhe and Akshay Bhaltilak, builders focused on software products, automation, and Indian business systems.",
-    image: "/w-p6.png",
+    image: "/P6.png",
     keywords: [
       ...sharedKeywords,
       "Shriyash Rulhe",
@@ -150,7 +155,7 @@ export const routeSeo = {
     title: "WebReich Engineering - React, Firebase, PWA and Scalable Software Systems",
     description:
       "Explore WebReich engineering across React.js, Firebase systems, PWA architecture, automation experiments, and scalable modern software stacks.",
-    image: "/w-p3.png",
+    image: "/P4.png",
     keywords: [
       ...sharedKeywords,
       "React.js engineering",

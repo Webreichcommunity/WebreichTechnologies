@@ -23,7 +23,7 @@ function route(path, priority = "0.7", changefreq = "weekly") {
 }
 
 function itemSlug(item) {
-  return slugFor(item.title || item.productName || item.workName || item.id);
+  return slugFor(item.id || item.title || item.productName || item.workName);
 }
 
 function xmlEscape(value) {

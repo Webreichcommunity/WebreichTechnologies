@@ -81,42 +81,42 @@ const staggerItem = {
 
 const pageVisuals = {
   Products: {
-    image: "/w-p7.png",
+    image: "/P3.png",
     label: "Reusable platforms",
     caption: "Vertical SaaS thinking for restaurants, construction, retail, jewellery, and internal operations.",
   },
   Work: {
-    image: "/lahole.png",
+    image: "/P1.png",
     label: "Client systems",
     caption: "Real workflows shaped into calmer software for teams, owners, and customers.",
   },
   Industries: {
-    image: "/w-p5.png",
+    image: "/P2.png",
     label: "Sector depth",
     caption: "Business rhythm, staff behavior, customer trust, and reporting needs guide every build.",
   },
   "Vision and Mission": {
-    image: "/solar.png",
+    image: "/vision.png",
     label: "Company direction",
     caption: "A product-backed software company built from practical execution and long-term trust.",
   },
   Insights: {
-    image: "/w-p8.png",
+    image: "/P5.png",
     label: "Company thinking",
     caption: "Notes on software, automation, business systems, and building useful products.",
   },
   Insight: {
-    image: "/w-p8.png",
+    image: "/P5.png",
     label: "Editorial",
     caption: "A field note from the way WebReich studies and builds software.",
   },
   Founders: {
-    image: "/w-p6.png",
+    image: "/P6.png",
     label: "Founder-led",
     caption: "Close to product decisions, client conversations, and execution quality.",
   },
   Engineering: {
-    image: "/w-p3.png",
+    image: "/P4.png",
     label: "Build culture",
     caption: "Experiments, automation, and reusable architecture for WebReich products.",
   },
@@ -131,7 +131,7 @@ const pageVisuals = {
     caption: "Product, client system, internship, partnership, or founder conversation.",
   },
   Product: {
-    image: "/w-p2.png",
+    image: "/P3.png",
     label: "Product view",
     caption: "A closer look at the problem, workflow, images, feedback, and inquiry path.",
   },
@@ -640,7 +640,7 @@ export function Overview() {
             preload="auto"
           >
             <source
-              src="https://www.pexels.com/download/video/7385122/"
+              src="https://www.pexels.com/download/video/29167798/"
               type="video/mp4"
             />
           </video>
@@ -650,10 +650,10 @@ export function Overview() {
           <motion.div {...fade} className="max-w-5xl">
             <Eyebrow dark className="text-2xl">WEBREICH</Eyebrow>
             <h1 className="mt-6 text-4xl font-semibold leading-[1.03] sm:text-5xl lg:text-6xl">
-              Building <span className="text-orange-400">digital infrastructure</span> for modern businesses.
+              A software company in Maharashtra building <span className="text-orange-400">digital infrastructure</span> for modern businesses.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-white/90">
-              WebReich develops software platforms, automation systems, and operational tools that help businesses scale with clarity, speed, and trust.
+              WebReich develops custom software, CRM platforms, web applications, and automation systems in Akola for businesses across Maharashtra and India.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/connect" className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">
@@ -1221,7 +1221,7 @@ export function InsightsPage() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <Link key={itemId(item)} to={`/insight/${itemId(item)}`} className="group overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/[0.04] transition hover:border-orange-300/40 hover:bg-white/[0.07]">
-              <img src={item.image || item.imageLink || "/w-p8.png"} alt={getTitle(item)} className="h-52 w-full object-cover opacity-85 transition group-hover:opacity-100" loading="lazy" decoding="async" />
+              <img src={item.image || item.imageLink || "/hero.png"} alt={getTitle(item)} className="h-52 w-full object-cover opacity-85 transition group-hover:opacity-100" loading="lazy" decoding="async" />
               <div className="p-6">
                 <p className="text-xs uppercase tracking-[0.24em] text-orange-300">{item.author || "WebReich Team"}</p>
                 <div className="mt-3 flex flex-wrap gap-3 text-xs text-white/45">
@@ -1253,7 +1253,7 @@ export function InsightDetailPage() {
   const [liked, setLiked] = useState(false);
   const [shared, setShared] = useState(false);
   if (!item) return <PageShell dark eyebrow="Insights" title="Post not found" intro="This post may have been moved from the admin panel." />;
-  const detailImage = item.image || item.imageLink || "/w-p8.png";
+  const detailImage = item.image || item.imageLink || "/hero.png";
 
   const share = async () => {
     const url = window.location.href;

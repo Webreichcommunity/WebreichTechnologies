@@ -21,7 +21,7 @@ export function organizationSchema() {
       addressCountry: siteConfig.address.country,
     },
     description:
-      "WebReich is an Indian software company building software platforms, business operating systems, automation systems, CRM products, restaurant technology, gold rate software, and operational infrastructure.",
+      "WebReich is a software company in Akola, Maharashtra, building custom software, web applications, CRM products, automation systems, and digital infrastructure for businesses across India.",
   };
 }
 
@@ -37,7 +37,7 @@ export function localBusinessSchema() {
     logo: imageUrl("/logo.png"),
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    priceRange: "$$",
+    priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.address.locality,
@@ -64,6 +64,20 @@ export function localBusinessSchema() {
       "Firebase",
       "SaaS products",
     ],
+    makesOffer: [
+      "Custom software development",
+      "CRM development",
+      "Web application development",
+      "Business process automation",
+    ].map((name) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name,
+        areaServed: { "@type": "Country", name: "India" },
+        provider: { "@id": `${siteConfig.baseUrl}/#organization` },
+      },
+    })),
   };
 }
 
@@ -77,11 +91,6 @@ export function websiteSchema() {
     url: siteConfig.baseUrl,
     publisher: { "@id": `${siteConfig.baseUrl}/#organization` },
     inLanguage: "en-IN",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteConfig.baseUrl}/insights?search={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -100,42 +109,32 @@ export function breadcrumbSchema(items = []) {
 
 export function softwareApplicationSchema(item) {
   const name = item.title || item.productName || "WebReich Software";
+  const slug = slugFor(item.id || name);
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name,
     applicationCategory: item.category || "BusinessApplication",
     operatingSystem: "Web",
-    url: absoluteUrl(`/products/${slugFor(name)}`),
-    image: imageUrl(item.image || "/w-p7.png"),
+    url: absoluteUrl(`/products/${slug}`),
+    image: imageUrl(item.image || "/P3.png"),
     description: item.description || item.summary,
     creator: { "@id": `${siteConfig.baseUrl}/#organization` },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      url: absoluteUrl(`/products/${slugFor(name)}`),
-    },
   };
 }
 
 export function productSchema(item) {
   const name = item.title || item.productName || "WebReich Product";
+  const slug = slugFor(item.id || name);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name,
     brand: { "@type": "Brand", name: siteConfig.brandName },
-    image: imageUrl(item.image || "/w-p7.png"),
+    url: absoluteUrl(`/products/${slug}`),
+    image: imageUrl(item.image || "/P3.png"),
     description: item.description || item.summary,
     category: item.category || "Software",
-    offers: {
-      "@type": "Offer",
-      url: absoluteUrl(`/products/${slugFor(name)}`),
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-    },
   };
 }
 
@@ -146,7 +145,7 @@ export function articleSchema(item, path) {
     "@type": "Article",
     headline: title,
     description: item.excerpt || item.summary,
-    image: imageUrl(item.image || "/w-p8.png"),
+    image: imageUrl(item.image || "/hero.png"),
     url: absoluteUrl(path),
     mainEntityOfPage: absoluteUrl(path),
     author: {
