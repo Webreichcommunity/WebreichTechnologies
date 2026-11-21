@@ -179,6 +179,20 @@ export const routeSeo = {
       "startup careers India",
     ],
   },
+  internshipApply: {
+    path: "/internship-apply",
+    title: "Apply for a WebReich Internship | Student Application",
+    description:
+      "Apply for a WebReich internship in software development, design, data, QA, or digital marketing. Share your skills and preferred learning track.",
+    image: "/stamp.png",
+    keywords: [
+      ...sharedKeywords,
+      "WebReich internship application",
+      "software internship application Maharashtra",
+      "student internship Akola",
+      "web development internship",
+    ],
+  },
   connect: {
     path: "/connect",
     title: "Contact WebReich - Software Company in Akola, Maharashtra",

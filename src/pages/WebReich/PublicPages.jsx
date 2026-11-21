@@ -1505,23 +1505,6 @@ export function CareersPage() {
   const [verifyEmail, setVerifyEmail] = useState("");
   const [verifyStatus, setVerifyStatus] = useState("idle");
   const [verifiedIntern, setVerifiedIntern] = useState(null);
-  const [applicationStatus, setApplicationStatus] = useState("idle");
-  const [application, setApplication] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    github: "",
-    role: "",
-    why: "",
-    growth: "",
-    proof: "",
-    hardThing: "",
-    availability: "",
-  });
-
-  const updateApplication = (field) => (event) => {
-    setApplication((prev) => ({ ...prev, [field]: event.target.value }));
-  };
 
   const verifyIntern = async (event) => {
     event.preventDefault();
@@ -1552,52 +1535,6 @@ export function CareersPage() {
     document.title = `${getCertificateId(verifiedIntern)}-WebReich-Internship-Completion`;
     window.print();
     document.title = originalTitle;
-  };
-
-  const submitApplication = async (event) => {
-    event.preventDefault();
-    setApplicationStatus("sending");
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: web3AccessKey,
-          subject: "WebReich Career Application",
-          from_name: application.name,
-          email: application.email,
-          phone: application.phone,
-          message: [
-            `Role/track: ${application.role}`,
-            `GitHub/Profile: ${application.github || "Not provided"}`,
-            `Why join WebReich: ${application.why}`,
-            `How can you help WebReich grow: ${application.growth}`,
-            `Proof of work: ${application.proof}`,
-            `Hard thing solved: ${application.hardThing}`,
-            `Availability: ${application.availability}`,
-          ].join("\n\n"),
-          to_email: "webreichcommunity@gmail.com",
-          botcheck: "",
-        }),
-      });
-      const result = await response.json();
-      if (!response.ok || result.success === false) throw new Error("Could not send");
-      setApplicationStatus("sent");
-      setApplication({
-        name: "",
-        email: "",
-        phone: "",
-        github: "",
-        role: "",
-        why: "",
-        growth: "",
-        proof: "",
-        hardThing: "",
-        availability: "",
-      });
-    } catch {
-      setApplicationStatus("error");
-    }
   };
 
   return (
@@ -1640,7 +1577,7 @@ export function CareersPage() {
           eyebrow="Builder Standard"
           title="We care less about perfect resumes and more about proof, ownership, and hunger."
           text="WebReich is a startup environment. The best candidates show work, learn fast, communicate clearly, and care about solving business problems through software."
-          links={[["Apply below", "/careers"]]}
+          links={[["Apply for internship", "/internship-apply"]]}
         />
 
         <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
@@ -1702,58 +1639,19 @@ export function CareersPage() {
         </section>
 
         <Section
-          title="Apply to join WebReich"
-          intro="This is intentionally startup-style. We want to understand how you think, what you have built, and how you can help WebReich grow."
+          title="Ready to build practical experience?"
+          intro="Use the dedicated internship application to share your education, skills, preferred track, and current readiness. Your application is saved for review and you receive a confirmation email."
         >
-          <form className="grid gap-5 bg-white p-6 shadow-sm md:grid-cols-2" onSubmit={submitApplication}>
-            {[
-              ["name", "Name", "text", true],
-              ["email", "Email", "email", true],
-              ["phone", "Phone number", "tel", true],
-              ["github", "GitHub / portfolio link", "url", false],
-              ["role", "Role or track you want", "text", true],
-              ["availability", "Availability", "text", true],
-            ].map(([field, label, type, required]) => (
-              <label key={field}>
-                <span className="text-sm font-semibold text-stone-700">{label}</span>
-                <input
-                  type={type}
-                  value={application[field]}
-                  onChange={updateApplication(field)}
-                  className="mt-2 w-full bg-white border border-stone-300 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
-                  required={required}
-                />
-              </label>
-            ))}
-            {[
-              ["why", "Why do you want to join WebReich?"],
-              ["growth", "How can you help WebReich grow in the next 6 months?"],
-              ["proof", "Show one proof of work, project, or skill you are proud of."],
-              ["hardThing", "Tell us about one hard thing you solved without giving up."],
-            ].map(([field, label]) => (
-              <label key={field} className="md:col-span-2">
-                <span className="text-sm font-semibold text-stone-700">{label}</span>
-                <textarea
-                  value={application[field]}
-                  onChange={updateApplication(field)}
-                  rows={4}
-                  className="mt-2 w-full border bg-white border-stone-300 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
-                  required
-                />
-              </label>
-            ))}
-            <div className="md:col-span-2">
-              <button
-                type="submit"
-                disabled={applicationStatus === "sending"}
-                className="bg-stone-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-orange-600 disabled:bg-stone-400"
-              >
-                {applicationStatus === "sending" ? "Submitting..." : "Submit application"}
-              </button>
-              {applicationStatus === "sent" && <p className="mt-4 text-sm text-green-700">Application submitted. WebReich will review it soon.</p>}
-              {applicationStatus === "error" && <p className="mt-4 text-sm text-red-600">Could not submit application. Please try again.</p>}
+          <div className="flex flex-col justify-between gap-6 bg-stone-950 p-7 text-white sm:flex-row sm:items-center sm:p-9">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-orange-300">Applications open</p>
+              <h3 className="mt-3 text-3xl font-semibold">Your next project could start here.</h3>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-stone-300">Complete one focused form. We will review your profile and contact you if your interests match an available internship track.</p>
             </div>
-          </form>
+            <Link to="/internship-apply" className="inline-flex min-h-12 shrink-0 items-center justify-center bg-orange-600 px-6 text-sm font-semibold text-white transition hover:bg-orange-500">
+              Apply for internship
+            </Link>
+          </div>
         </Section>
       </PageShell>
 

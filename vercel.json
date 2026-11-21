@@ -1,4 +1,10 @@
 {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "functions": {
+      "api/send-internship-confirmation.js": {
+        "maxDuration": 15
+      }
+    },
     "rewrites": [
       {
         "source": "/(.*)",
@@ -6,4 +12,3 @@
       }
     ]
   }
-  

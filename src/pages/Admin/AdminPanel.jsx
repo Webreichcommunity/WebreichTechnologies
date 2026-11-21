@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import {
   Bold,
   BriefcaseBusiness,
+  ClipboardList,
   FileBadge,
   Image,
   Italic,
@@ -253,6 +254,9 @@ export default function AdminPanel() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
+                <Link to="/admin/applications" className="rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                  Applications
+                </Link>
                 <Link to="/admin/internships" className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-stone-950">
                   Internship Records
                 </Link>
@@ -469,7 +473,12 @@ export default function AdminPanel() {
             </section>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <Link to="/admin/applications" className="rounded-[1.5rem] border border-stone-200 bg-white p-6 shadow-sm transition hover:border-orange-300 hover:shadow-lg">
+              <ClipboardList className="h-6 w-6 text-orange-600" />
+              <h3 className="mt-4 text-xl font-semibold">Internship applications</h3>
+              <p className="mt-2 text-sm leading-6 text-stone-600">Review new applicants, update their status, contact candidates, and export records.</p>
+            </Link>
             <Link to="/admin/internships" className="rounded-[1.5rem] border border-stone-200 bg-white p-6 shadow-sm">
               <FileBadge className="h-6 w-6 text-orange-600" />
               <h3 className="mt-4 text-xl font-semibold">Internship data entry</h3>

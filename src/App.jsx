@@ -25,8 +25,10 @@ import ScrollToTop from './components/ScrollToTop'
 import RouteSEO from './seo/RouteSEO'
 
 const AdminPanel = lazy(() => import('./pages/Admin/AdminPanel'))
+const InternshipApplications = lazy(() => import('./pages/Admin/InternshipApplications'))
 const InternShip = lazy(() => import('./pages/InternShip/InternShip'))
 const GenerateCertificates = lazy(() => import('./pages/InternShip/GenerateCertificates'))
+const InternshipApply = lazy(() => import('./pages/InternShip/InternshipApply'))
 
 function App() {
   const location = useLocation()
@@ -56,11 +58,13 @@ function App() {
           <Route path="/insights/:id" element={<InsightDetailPage />} />
           <Route path="/journal" element={<Navigate to="/insights" replace />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/internship-apply" element={<InternshipApply />} />
           <Route path="/connect" element={<ContactPage />} />
           <Route path="/contact" element={<Navigate to="/connect" replace />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
           <Route path="/infrastructure" element={<InfrastructurePage />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin/applications" element={<InternshipApplications />} />
           <Route path="/admin/internships" element={<InternShip />} />
           <Route path="/admin/certificates" element={<GenerateCertificates />} />
           <Route path="/internship-webreich-@3535" element={<Navigate to="/admin/internships" replace />} />
